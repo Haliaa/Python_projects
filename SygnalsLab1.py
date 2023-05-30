@@ -3,11 +3,11 @@ from matplotlib import pyplot as plt
 from scipy import integrate
 from prettytable import PrettyTable
 
-n = 25
+n = 1
 N = 10
 
-beginOfInterval = -np.pi
-endOfInterval = np.pi
+beginOfInterval = -3*np.pi
+endOfInterval = 3*np.pi
 
 def f(x):
     return n * np.sin(n * np.pi * x)
@@ -69,11 +69,10 @@ def show_fourier_coefficients(file_object):
 
 def show_graphs():
     fig1, ax1 = plt.subplots(1, 1, figsize=(10, 10))
-    ax1.set_title("Графік функції f та наближення функції f рядом Фур'є", fontsize=16)
+    ax1.set_title("Графік вихідної функції f ", fontsize=16)
     plt.grid(True)
     x_1 = np.linspace(beginOfInterval, endOfInterval, num=1000)
     plt.plot(x_1, f(x_1), label="Функція", linewidth=3)
-    plt.plot(x_1, calculateApproximate(x_1, N), label="Наближення = " + str(20), color="orange")
     plt.xlim([beginOfInterval, endOfInterval])
     plt.legend(borderaxespad=0.2, loc="best")
     plt.show()
@@ -102,7 +101,7 @@ def show_graphs():
     x_2 = np.linspace(beginOfInterval, endOfInterval, num=1000)
     plt.xlim([beginOfInterval, endOfInterval])
     plt.plot(x_2, f(x_2), label="Функція f")
-    for i in range(1, N + 1, 4):
+    for i in range(1, N + 1, 1):
         plt.plot(x_2, calculateApproximate(x_2, i), label="Наближення = " + str(i))
     plt.legend(borderaxespad=0.2, loc="best")
     plt.show()
