@@ -9,7 +9,7 @@ def test_sequence_generating(n):
 def euclidova_distance(x1, x2):
     return np.sqrt(np.sum((x1 - x2) ** 2))
 
-# Алгоритм кластеризації K-значень
+# Алгоритм кластеризації K-середніх
 def k_means_clustering(X, n_clusters=3):
     # Ініціалізація центроїдів випадковим чином
     centroids = X[np.random.choice(X.shape[0], n_clusters, replace=False)]
@@ -97,7 +97,7 @@ def avg_cluster_size(X, labels):
 # Створення тестової послідовності з 1000 2D точок
 X = test_sequence_generating(500)
 
-# Застосування K-значень і алгоритми агломеративної кластеризації до тестової послідовності
+# Застосування K-середніх і алгоритми агломеративної кластеризації до тестової послідовності
 k_means_labels = k_means_clustering(X)
 hierarchical_labels = hierarchical_clustering(X)
 
@@ -105,7 +105,7 @@ hierarchical_labels = hierarchical_clustering(X)
 k_means_size = avg_cluster_size(X, k_means_labels)
 hierarchical_size = avg_cluster_size(X, hierarchical_labels)
 
-# Вивід результатів кластеризації K-значень
+# Вивід результатів кластеризації K-середніх
 print("K-Means Clustering Results:")
 print("Number of Clusters:", len(np.unique(k_means_labels)))
 print("Average Cluster Size:", k_means_size)
@@ -116,7 +116,7 @@ print("Number of Clusters:", len(np.unique(hierarchical_labels)))
 print("Average Cluster Size:", hierarchical_size)
 
 fig, axs = plt.subplots(1, 2)
-# Побудова тестової послідовності з точками кольору міток кластерів K-значень
+# Побудова тестової послідовності з точками кольору міток кластерів K-середніх
 axs[0].scatter(X[:, 0], X[:, 1], c=k_means_labels)
 axs[0].set_title('K-Means Clustering')
 
