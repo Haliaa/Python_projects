@@ -33,7 +33,6 @@ with open('MoshiLab4.txt', 'r') as f:
 # Ініціалізація рівнів феромонів
 pheromones = [[1 / (N * N) for _ in cities] for _ in cities]
 
-
 # Обчислення ймовірностей переходу для k мурах
 def transition_probability(alpha, beta, visited):
     unvisited = set(cities) - set(visited)
@@ -87,8 +86,6 @@ def plot_tour(tour):
 
 # Проведення послідовності симуляцій на одній карті
 for M in M_values:
-    pheromones = [[1 / (N * N) for _ in cities] for _ in cities]
-
     for step in range(50):
         tours = construct_solution(M, N, alpha, beta)
         update_pheromones(tours, M, N, rho)
@@ -101,8 +98,6 @@ for M in M_values:
     print(f'Best length: {best_length}')
 
 for rho in rho_values:
-    pheromones = [[1 / (N * N) for _ in cities] for _ in cities]
-
     for step in range(50):
         tours = construct_solution(M, N, alpha, beta)
         update_pheromones(tours, M, N, rho)
@@ -116,13 +111,10 @@ for rho in rho_values:
     plot_tour(best_tour)
 
 for alpha, beta in zip(alpha_values, beta_values):
-    # Ініціалізація рівнів феромонів
-    pheromones = [[1 / (N * N) for _ in cities] for _ in cities]
-
     for step in range(50):
         tours = construct_solution(M, N, alpha, beta)
         update_pheromones(tours, M, N, rho)
-    best_tour = min(tours,key=length)
+    best_tour = min(tours, key=length)
     best_length = length(best_tour)
 
     print("--------------------------------------------------------------------------------------")
