@@ -1,14 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-# Генерування тестової послідовністі з n 2D точок
-def test_sequence_generating(n):
-    return np.random.rand(n, 2)
-
-# Обчислення Евклідової відстані між двома точками
-def euclidova_distance(x1, x2):
-    return np.sqrt(np.sum((x1 - x2) ** 2))
-
 # Алгоритм кластеризації K-середніх
 def k_means_clustering(X, n_clusters=3):
     # Ініціалізація центроїдів випадковим чином
@@ -49,7 +41,7 @@ def hierarchical_clustering(X, n_clusters=3):
             dist_matrix[i, j] = np.linalg.norm(X[i] - X[j])
     # Ініціалізація кластерів
     clusters = [[i] for i in range(X.shape[0])]
-    # Виконайте агломеративного кластеризування
+    # Виконання ієрархічної кластеризації
     for k in range(X.shape[0] - n_clusters):
         # Пошук двох найближчих кластерів
         min_dist = float('inf')
@@ -78,6 +70,14 @@ def hierarchical_clustering(X, n_clusters=3):
             labels[j] = i
     return labels
 
+# Генерування тестової послідовністі з n 2D точок
+def test_sequence_generating(n):
+    return np.random.rand(n, 2)
+
+# Обчислення Евклідової відстані між двома точками
+def euclidova_distance(x1, x2):
+    return np.sqrt(np.sum((x1 - x2) ** 2))
+
 # Обчислення середного розміру кластерів
 def avg_cluster_size(X, labels):
     n_clusters = len(np.unique(labels))  # Знайходження кількості унікальних кластерів
@@ -95,9 +95,9 @@ def avg_cluster_size(X, labels):
     return np.average(cluster_sizes, weights=np.bincount(labels))
 
 # Створення тестової послідовності з 1000 2D точок
-X = test_sequence_generating(500)
+X = test_sequence_generating(200)
 
-# Застосування K-середніх і алгоритми агломеративної кластеризації до тестової послідовності
+# Застосування K-середніх і алгоритми ієрархічної кластеризації до тестової послідовності
 k_means_labels = k_means_clustering(X)
 hierarchical_labels = hierarchical_clustering(X)
 
@@ -110,8 +110,8 @@ print("K-Means Clustering Results:")
 print("Number of Clusters:", len(np.unique(k_means_labels)))
 print("Average Cluster Size:", k_means_size)
 
-# Вивід результатів агломеративної кластеризації
-print("\nAgglomerative Clustering Results:")
+# Вивід результатів ієрархічної кластеризації
+print("\nHierarchical Clustering Results:")
 print("Number of Clusters:", len(np.unique(hierarchical_labels)))
 print("Average Cluster Size:", hierarchical_size)
 
@@ -120,7 +120,7 @@ fig, axs = plt.subplots(1, 2)
 axs[0].scatter(X[:, 0], X[:, 1], c=k_means_labels)
 axs[0].set_title('K-Means Clustering')
 
-# Побудова тестової послідовності з точками кольору міток агломеративних кластерів
+# Побудова тестової послідовності з точками кольору міток ієрархічних кластерів
 axs[1].scatter(X[:, 0], X[:, 1], c=hierarchical_labels)
-axs[1].set_title('Agglomerative Clustering')
+axs[1].set_title('Hierarchical Clustering')
 plt.show()
