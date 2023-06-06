@@ -4,11 +4,10 @@ from prettytable import PrettyTable
 from colorama import Fore, Style
 
 max_adjustment = 2000
-max_generations = 50
 population_size = 50
-crossover_rate = 0.9
+max_generations = 50
 mutation_rate = 0.1
-
+crossover_rate = 0.9
 
 class Cls:
     def __init__(self, name, cls_teacher):
@@ -73,7 +72,7 @@ def adjustment(schedule, num_lessons, max_lessons_per_day):
                             window_errors += 1
         adjustment_score -= 10 * window_errors
 
-    # Перевірая чи є накладки (чи вчитель веде 2 уроки одночасно та однакові кімнати зайняті одночасно)
+    # Перевірка вчитель веде 2 уроки одночасно та однакові кімнати зайняті одночасно
     same_teacher_errors = 0
     same_room_errors = 0
     all_lessons = []
@@ -308,18 +307,18 @@ def main():
     max_lessons_per_day = 5
 
     teachers = [
-        Teacher("Teacher 1", ["Drawing", "Math", "Geography", "History"]),
-        Teacher("Teacher 2", ["Drawing", "Math", "Geography", "Music"]),
-        Teacher("Teacher 3", ["Drawing", "Math", "Geography", "History"]),
-        Teacher("Teacher 4", ["Biology", "PE"]),
+        Teacher("Teacher 1", ["Geography", "English", "Science", "Literature"]),
+        Teacher("Teacher 2", ["Geography", "English", "Science", "Music"]),
+        Teacher("Teacher 3", ["Geography", "English", "Science", "Literature"]),
+        Teacher("Teacher 4", ["PE", "Drama classes"]),
     ]
 
     room_names = ["СlassRoom 1", "ClassRoom 2", "ClassRoom 3", "Music Room", "Dance Room", "PE Room"]
 
     class_names = ["Class A", "Class B", "Class C"]
 
-    lesson_names = [["Math", False, "None"], ["English", False, "None"], ["Science", False, "None"],
-                    ["History", False, "None"], ["PE", True, "PE Room"], ["Choreography", True, "Dance Room"],
+    lesson_names = [["Geography", False, "None"], ["English", False, "None"], ["Science", False, "None"],
+                    ["Literature", False, "None"], ["PE", True, "PE Room"], ["Drama classes", True, "Assembly Hall"],
                     ["Music", True, "Music Room"]]
 
     input_file = "MoshiLab5.txt"
