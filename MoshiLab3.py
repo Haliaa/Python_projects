@@ -95,7 +95,7 @@ def avg_cluster_size(X, labels):
     return np.average(cluster_sizes, weights=np.bincount(labels))
 
 # Створення тестової послідовності з 1000 2D точок
-X = test_sequence_generating(200)
+X = test_sequence_generating(500)
 
 # Застосування K-середніх і алгоритми ієрархічної кластеризації до тестової послідовності
 k_means_labels = k_means_clustering(X)
