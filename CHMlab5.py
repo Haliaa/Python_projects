@@ -1,6 +1,5 @@
 import numpy as np
 from colorama import Fore
-import matplotlib.pyplot as plt
 import warnings
 from matplotlib import MatplotlibDeprecationWarning
 warnings.filterwarnings("ignore", category=MatplotlibDeprecationWarning)
@@ -62,30 +61,11 @@ def newton_interpolation(x_values, y_values, x_input):
 def main():
     x_values = np.array([0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9])
 
-    # Функція А
-   # print('\033[1m' + Fore.LIGHTGREEN_EX + "\nІнтерполяція функції А" + Fore.RESET + '\033[0m')
-   #  y_values = np.array([0.00000, 0.09983, 0.19866, 0.29552, 0.38941,
-   #                       0.47942, 0.56464, 0.64421, 0.71735, 0.78332])
-   #  x_input = np.array([0.052, 0.303, 0.891])
-    #x_input = read_input_file('input_A.txt')
-    #newton_interpolation(x_values, y_values, x_input)
-
-    # Функція В
-    # print('\033[1m' + Fore.LIGHTYELLOW_EX + "\nІнтерполяція функції B" + Fore.RESET + '\033[0m')
-    # y_values = np.array([2.00000, 1.95533, 1.82533, 1.62160, 1.36235,
-    #                      1.07073, 0.77279, 0.49515, 0.26260, 0.09592])
-    #x_input = np.array([0.122, 0.554, 0.812])
-    # x_input = read_input_file('input_B.txt')
-    # newton_interpolation(x_values, y_values, x_input)
-    # x_input_interpolation_nodes = np.array([0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9])
-    #print('\033[1m' + Fore.LIGHTYELLOW_EX + "\nЗначення у вузлах інтерполяції:" + Fore.RESET + '\033[0m')
-    #newton_interpolation(x_values, y_values, x_input_interpolation_nodes)
-
     # Функція С
     print('\033[1m' + Fore.CYAN + "\nІнтерполяція функції C" + Fore.RESET + '\033[0m')
     y_values = np.array([0.00000, 0.22140, 0.49182, 0.82211, 1.22554,
                          1.71828, 2.32011, 3.05519, 3.95303, 5.04964])
-    x_input = read_input_file('input_C.txt')
+    x_input = read_input_file('CHMlab5.txt')
     newton_interpolation(x_values, y_values, x_input)
 
 # Виклик головної функції

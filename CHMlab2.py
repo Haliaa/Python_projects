@@ -18,11 +18,12 @@ e = 0.0001
 
 def accuracy(x, x_new, e):
 
-    sub = np.max(abs(x_new - x))
+    diff = np.max(abs(x_new - x))
 
-    if sub < e: return False
+    if diff < e: return False
 
     else: return True
+
 
 # функція для методу Зейделя
 

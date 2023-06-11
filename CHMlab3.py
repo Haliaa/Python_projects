@@ -2,7 +2,7 @@ import math
 
 
 def equation(x):
-   return 2 * math.cos(x / 2) - math.exp(x) + 1
+    return math.exp(-x) - math.log(x)
 
 
 def bisection_method(a, b, tolerance):
@@ -46,7 +46,7 @@ def iterative_method(x, tolerance):
        x = x - equation(x) / (-2 * math.sin(x / 2) - math.exp(x))
        residual = equation(x)
        print(
-           "Iteration {}: Root: {:.8f}, Iterations: {}, Residual: {:.8f}".format(iterations, x, iterations, residual))
+           "Iteration {}: Root: {:.8f}, Residual: {:.8f}".format(iterations, x, residual))
 
    print("\nSolution with tolerance 1e{}: {:.10f}".format(int(math.log10(tolerance)), x))
 
