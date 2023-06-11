@@ -1,0 +1,24 @@
+25
+2
+5
+5
+Teacher 1: Geography, English, Science, Literature
+Teacher 2: Geography, English, Science, Music
+Teacher 3: Geography, English, Science, Literature
+Teacher 4: PE, Drama classes
+СlassRoom 1
+ClassRoom 2
+ClassRoom 3
+Music Room
+Dance Room
+PE Room
+Class A
+Class B
+Class C
+Geography, false, None
+English, false, None
+Science, false, None
+Literature, false, None
+PE, true, PE Room
+Drama classes, true, Assembly Hall
+Music, true, Music Room
